@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+   <children>
+      <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="60.0" prefWidth="889.0" spacing="10.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goBack" text="Back" HBox.hgrow="NEVER">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#goHome" text="Home">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <TextField fx:id="navigationBar" onAction="#go" onInputMethodTextChanged="#go" prefWidth="246.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font></TextField>
+            <Label text="Search">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <TextField fx:id="searchBar" onAction="#search">
+               <font>
+                  <Font size="24.0" />
+               </font></TextField>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </HBox>
+      <WebView fx:id="webView" onKeyReleased="#updateNavigationBar" prefHeight="363.0" prefWidth="918.0" VBox.vgrow="ALWAYS" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="8.0">
+         <children>
+            <ProgressBar fx:id="progressBar" prefHeight="4.0" prefWidth="271.0" progress="0.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
