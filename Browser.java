@@ -8,11 +8,11 @@ import java.io.IOException;
 
 public class Browser extends Application {
 
-    private static Scene scene;
-
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("parent"), 640, 480);
+        // parent node from an fxml file
+        Scene scene = new Scene(loadFXML("parent"), 640, 480);
+
         stage.setScene(scene);
         stage.setTitle("Web browser");
         stage.setMinWidth(900);
@@ -20,17 +20,14 @@ public class Browser extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
+    // for the purpos of macking the code look clean
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Browser.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }

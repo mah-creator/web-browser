@@ -20,19 +20,20 @@ public class MainController{
     ProgressBar progressBar;
 
     private ObservableList<Entry> historyList;
-
+    
     @FXML
     private void goHome(){
         goTo("https://www.google.com");
     }
 
+    // goes back a step
     @FXML
     private void goBack(){
         historyList =  webView.getEngine().getHistory().getEntries();
         goTo(historyList.get(historyList.size()-2).getUrl());
         historyList.remove(historyList.size()-1);
     }
-
+    
     @FXML
     private void go(){
         goTo("https://www." + navigationBar.getText());
@@ -50,6 +51,7 @@ public class MainController{
         progressBar.progressProperty().bind(webView.getEngine().getLoadWorker().progressProperty());
     }
 
+    // a method used to head to a givin string url
     private void goTo(String url){
         webView.getEngine().load(url);
         updateNavigationBar();
